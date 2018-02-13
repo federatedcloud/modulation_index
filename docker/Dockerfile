@@ -45,9 +45,13 @@ RUN /opt/conda/envs/python2/bin/python setup.py install --home=$PRESTO
 RUN cd /home/jovyan/modulation_index/mi_src && \
 	gcc -Wall palfa_calc_mi.c -o palfa_mi -lm && \
 	cp palfa_mi $PALFA/bin
+
+COPY .bashrc /home/jovyan/.bashrc
+COPY .profile /home/jovyan/.profile
 	
-RUN echo "export PALFA=$PSRHOME/PALFA" >> /home/jovyan/.bashrc
-RUN echo "export PATH=/opt/conda/bin:$PATH" >> /home/jovyan/.bashrc
+	
+#RUN echo "export PALFA=$PSRHOME/PALFA" >> /home/jovyan/.bashrc
+#RUN echo "export PATH=/opt/conda/bin:$PATH" >> /home/jovyan/.bashrc
 	
 USER root
 
