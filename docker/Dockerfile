@@ -1,5 +1,5 @@
 #Acts as a modification to run Laura Spitler's version of single-pulse searching
-FROM nanograv/pulsar:20180206
+FROM nanograv/pulsar
 
 USER jovyan
 
