@@ -101,6 +101,7 @@ int main(int argc, char *argv[])
 
     //CLOSE FILES
     fclose(fin);fclose(fraw);fclose(fout);
+    fprintf(stderr, "Closing files\n");
 
     return 0;
 }
