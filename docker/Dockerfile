@@ -1,5 +1,7 @@
 #Acts as a modification to run Laura Spitler's version of single-pulse searching
-FROM nanograv/pulsar
+FROM cornellcac/ipta-docker-updated
+
+SHELL ["/bin/bash", "-c"]
 
 USER jovyan
 
@@ -29,7 +31,8 @@ RUN make clean
 WORKDIR /home/jovyan
 
 RUN git clone https://github.com/federatedcloud/modulation_index.git && \
-	cd modulation_index && \
+    git checkout python3 && \
+    cd modulation_index && \
 	cp changes/*.h $PRESTO/include && \
 	cp changes/*.c $PRESTO/src && \
 	cp changes/Makefile $PRESTO/src
