@@ -32,7 +32,6 @@ WORKDIR /home/jovyan
 
 RUN git clone https://github.com/federatedcloud/modulation_index.git && \
     cd modulation_index && \
-    git checkout python3 && \
 	cp changes/*.h $PRESTO/include && \
 	cp changes/*.c $PRESTO/src && \
 	cp changes/Makefile $PRESTO/src
