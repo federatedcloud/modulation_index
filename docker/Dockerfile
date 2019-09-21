@@ -16,7 +16,7 @@ ENV PATH=$PATH:$PRESTO/bin
 WORKDIR $PSRHOME
 
 RUN mkdir PALFA && \
-	mkdir PALFA/bin
+    mkdir PALFA/bin
 	
 ENV PALFA=$PSRHOME/PALFA
 
@@ -28,13 +28,17 @@ WORKDIR $PRESTO/src
 
 RUN make clean
 
+# Use in-development python3new branch of PRESTO
+RUN git checkout python3new
+
 WORKDIR /home/jovyan
 
 RUN git clone https://github.com/federatedcloud/modulation_index.git && \
     cd modulation_index && \
-	cp changes/*.h $PRESTO/include && \
-	cp changes/*.c $PRESTO/src && \
-	cp changes/Makefile $PRESTO/src
+    git checkout python3 && \
+    cp changes/*.h $PRESTO/include && \
+    cp changes/*.c $PRESTO/src && \
+    cp changes/Makefile $PRESTO/src
 
 
 WORKDIR $PRESTO/src
@@ -47,8 +51,8 @@ WORKDIR $PRESTO/python
 RUN /opt/conda/envs/python2/bin/python setup.py install --home=$PRESTO 
 
 RUN cd /home/jovyan/modulation_index/mi_src && \
-	gcc -Wall palfa_calc_mi.c -o palfa_mi -lm && \
-	cp palfa_mi $PALFA/bin
+    gcc -Wall palfa_calc_mi.c -o palfa_mi -lm && \
+    cp palfa_mi $PALFA/bin
 
 COPY .bashrc /home/jovyan/.bashrc
 COPY .profile /home/jovyan/.profile
