@@ -142,4 +142,3 @@ export PALFA=$PSRHOME/PALFA
 export PATH=/opt/conda/bin:$PATH
 export PYTHONPATH=$PYTHONPATH:$PALFA/transients_pipeline2/pipeline2.0/lib/python/
 export PYTHONPATH=$PYTHONPATH:$PALFA/transients_pipeline2/pipeline2.0/bin/
-source activate python2

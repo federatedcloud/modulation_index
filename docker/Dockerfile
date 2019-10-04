@@ -54,8 +54,11 @@ RUN cd /home/jovyan/modulation_index/mi_src && \
     gcc -Wall palfa_calc_mi.c -o palfa_mi -lm && \
     cp palfa_mi $PALFA/bin
 
-COPY .bashrc /home/jovyan/.bashrc
-COPY .profile /home/jovyan/.profile
+RUN pip install https://github.com/UCBerkeleySETI/blimpy/archive/1.4.1.tar.gz
+
+COPY bashrc /home/jovyan/.bashrc
+COPY vimrc /home/jovyan/.vimrc
+COPY profile /home/jovyan/.profile
 	
 	
 #RUN echo "export PALFA=$PSRHOME/PALFA" >> /home/jovyan/.bashrc
