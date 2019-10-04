@@ -66,8 +66,8 @@ COPY profile /home/jovyan/.profile
 	
 USER root
 
-
 RUN groupadd -g 999 docker
-RUN usermod -a -G docker jovyan
+RUN usermod -aG docker jovyan
 
+RUN chown jovyan ~/.bash_history
 
