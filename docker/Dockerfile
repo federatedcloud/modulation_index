@@ -48,7 +48,7 @@ RUN make prep && \
 
 WORKDIR $PRESTO/python
 
-RUN /opt/conda/envs/python2/bin/python setup.py install --home=$PRESTO 
+RUN python3 setup.py install --home=$PRESTO 
 
 RUN cd /home/jovyan/modulation_index/mi_src && \
     gcc -Wall palfa_calc_mi.c -o palfa_mi -lm && \
@@ -69,5 +69,5 @@ USER root
 RUN groupadd -g 999 docker
 RUN usermod -aG docker jovyan
 
-RUN chown jovyan ~/.bash_history
+#RUN chown jovyan ~/.bash_history
 
