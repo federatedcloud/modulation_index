@@ -127,7 +127,6 @@ export PSRHOME=/opt/pulsar
 export PRESTO=$PSRHOME/presto 
 export PATH=$PATH:$PRESTO/bin 
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$PRESTO/lib:/usr/local/lib
-export PYTHONPATH=$PYTHONPATH:$PRESTO/lib/python
 export PSRCHIVE=$PSRHOME/psrchive 
 export PATH=$PATH:$PSRCHIVE/install/bin 
 export C_INCLUDE_PATH=$C_INCLUDE_PATH:$PSRCHIVE/install/include 
